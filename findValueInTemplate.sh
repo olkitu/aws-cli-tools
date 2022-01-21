@@ -18,7 +18,7 @@ fi
 
 # Get all all Cloudformation stacks from AWS account
 STACKS=$(aws --profile ${PROFILE} cloudformation list-stacks)
-STACKID=$(echo $STACK | jq -r '.StackSummaries[].StackId')
+STACKID=$(echo ${STACKS} | jq -r '.StackSummaries[].StackId')
 
 # Loop all stacks
 for STACK in $STACKID
